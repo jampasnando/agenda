@@ -32,6 +32,7 @@ export class ConsultasService {
     params.append("estado",formu.value.estado);
     params.append("id",id);
     params.append("consulta","recibeformnuevareunion");
+    
 
     files.forEach((file) => {
       params.append('files[]', file.rawFile, file.name);

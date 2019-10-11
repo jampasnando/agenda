@@ -12,6 +12,7 @@ export class EditareunionPage implements OnInit {
   idreunion:string;
   idevento:string;
   formulario:FormGroup;
+  docus:[];
   constructor(private activatedRoute:ActivatedRoute, private consultas:ConsultasService, private formBuilder:FormBuilder, private router:Router) { }
 
   ngOnInit() {
@@ -49,6 +50,7 @@ export class EditareunionPage implements OnInit {
       this.formulario.controls.observaciones.setValue(data.observaciones);
       this.formulario.controls.docs.setValue(data.docs);
       this.formulario.controls.estado.setValue(data.estado);
+      this.docus=data.docs.split(":");
     });
   }
   enviaCambiosReunion(){
