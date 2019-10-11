@@ -1,0 +1,12 @@
+.toolbar{
+    --background: khaki !important;
+}
+.pie{
+    background-image: url("../../assets/images/transp.png");
+    height: 5em;
+    width: 100%;
+    background-size: contain;
+    position: absolute;
+    background-repeat: no-repeat;
+    bottom: 0;
+}

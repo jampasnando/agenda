@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>DETALLE REUNIÓN</ion-title>
+    <ion-buttons slot="end">
+        <ion-button routerLink="/home">
+          <ion-icon name="home"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formulario">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre" type="text" autocapitalize="sentences"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Lugar</ion-label>
+      <ion-input formControlName="lugar" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Fecha</ion-label>
+      <ion-datetime displayFormat="DD MMMM YYYY" max="2030-12-31" min="2019-01-01" formControlName="fecha" picker-format="DD/MMM/YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label >Hora Inicio</ion-label>
+      <ion-datetime displayFormat="HH:mm" minuteValues="0,15,30,45" formControlName="horainicio"></ion-datetime>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label position="floating">Asistentes</ion-label>
+        <ion-textarea formControlName="asistentes"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Observaciones</ion-label>
+      <ion-textarea formControlName="observaciones"></ion-textarea>
+    </ion-item>
+      <ion-item>
+          <ion-label position="floating">Documentos adjuntos</ion-label>
+          <ion-input formControlName="docs" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label >Estado</ion-label>
+          <ion-select formControlName="estado">
+            <ion-select-option>Pendiente</ion-select-option>
+            <ion-select-option>Realizada</ion-select-option>
+            <ion-select-option>Cancelada</ion-select-option>
+          </ion-select>
+        </ion-item>
+  </ion-list>
+</form>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <ion-button expand="full" (click)="enviaCambiosReunion()" [disabled]="!formulario.valid">Guardar Cambios</ion-button>
+    </ion-toolbar>
+  </ion-footer>
