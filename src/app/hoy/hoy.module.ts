@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditareunionPage } from './editareunion.page';
-import { ConsultasService } from 'src/app/service/consultas.service';
+import { HoyPage } from './hoy.page';
 import { HttpClientModule } from '@angular/common/http';
-import { FileUploadModule } from 'ng2-file-upload';
+import { ConsultasService } from '../service/consultas.service';
+
 const routes: Routes = [
   {
     path: '',
-    component: EditareunionPage
+    component: HoyPage
   }
 ];
 
@@ -22,11 +22,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    FileUploadModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [EditareunionPage],
+  declarations: [HoyPage],
   providers:[ConsultasService]
 })
-export class EditareunionPageModule {}
+export class HoyPageModule {}

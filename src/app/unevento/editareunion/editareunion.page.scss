@@ -1,0 +1,31 @@
+ion-grid{
+    // background:yellow;
+    width:100%;
+}
+ion-grid{
+    width: 100%;
+}
+ion-col:last-child{
+    text-align: center;
+}
+ion-row{
+    background: lightgoldenrodyellow;
+    border-bottom: 1px solid lightgray;
+}
+.boton{
+    position: relative;
+    overflow: hidden;
+    // border-radius: 50% 50%;
+}
+.boton input.browse{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    filter:alpha(opacity=0);
+}
+.boton div{
+    font-size: 2em;
+}

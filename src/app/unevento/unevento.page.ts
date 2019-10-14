@@ -46,7 +46,7 @@ export class UneventoPage implements OnInit {
     const alerta=await this.alertCtrl.create({
       header:"Está seguro de BORRAR a",
       subHeader:uno.nombre.concat(" de la lista de Reuniones???"),
-      message:"Se eliminarán también los registros de asistencia pertenecientes a esta reunión. Si no está seguro aprete Cancelar",
+      message:"Se eliminarán todo el contenido de esta reunión. Si no está seguro aprete Cancelar",
       buttons:[
         {
           text:"Cancelar",

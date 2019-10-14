@@ -1,0 +1,30 @@
+ion-content{
+    --background:khaki;
+}
+ion-toolbar{
+    --background:khaki;
+}
+// ion-grid{
+//     background: khaki;
+    
+// }
+// ion-list{
+//     background: khaki;
+// }
+// ion-item{
+//     --background: khaki;
+// }
+.nombre{
+    color: #101010;
+    font-size: 0.9em;
+}
+.obs{
+    color: #c1c1c1;
+    font-size: 0.8em;
+}
+ion-col:last-child{
+    background:lightyellow;
+}
+ion-col:first-child{
+    color: lightseagreen;
+}

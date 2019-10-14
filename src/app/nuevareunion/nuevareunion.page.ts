@@ -28,12 +28,7 @@ export class NuevareunionPage implements OnInit {
       horainicio:new FormControl(null,Validators.compose([
         Validators.required
       ])),
-      // duracion: new FormControl('indefinida',Validators.compose([
-      //   Validators.required
-      // ])),
-      // tiqueos:new FormControl('1',Validators.compose([
-      //   Validators.required
-      // ])),
+      
       asistentes:new FormControl(''),
       observaciones:new FormControl(''),
       docs: new FormControl(''),
@@ -47,6 +42,10 @@ export class NuevareunionPage implements OnInit {
     return this.uploader.queue.map((fileItem) => {
       return fileItem.file;
     });
+  }
+  borra(item){
+    console.log(item);
+    this.uploader.removeFromQueue(item);
   }
   reorderFiles(reorderEvent: CustomEvent): void {
     let element = this.uploader.queue.splice(reorderEvent.detail.from, 1)[0];

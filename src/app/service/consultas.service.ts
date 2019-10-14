@@ -32,11 +32,13 @@ export class ConsultasService {
     params.append("estado",formu.value.estado);
     params.append("id",id);
     params.append("consulta","recibeformnuevareunion");
-    
-
-    files.forEach((file) => {
-      params.append('files[]', file.rawFile, file.name);
-    });
+    if(files.length>0){
+      files.forEach((file) => {
+        params.append('bandera','si');
+        params.append('files[]', file.rawFile, file.name);
+      });
+    }
+    else {params.append('bandera','no');}
 
     return this.httpClient.post<any>(this.servidor,params);
   }
@@ -63,48 +65,7 @@ export class ConsultasService {
     params.append("consulta","consultaunareunion");
     return this.httpClient.post<any>(this.servidor,params);
   }
-  // consultaEmpleados(idreunion){
-  //   const params:FormData=new FormData();
-  //   params.append("idreunion",idreunion);
-  //   params.append("consulta","consultaempleados");
-  //   return this.httpClient.post<any>(this.servidor,params);
-  // }
-  // consultaconvocadostiqueo(idreunion,nrotiq){
-  //   const params:FormData=new FormData();
-  //   params.append("idreunion",idreunion);
-  //   params.append("nrotiq",nrotiq);
-  //   params.append("consulta","consultaconvocadostiqueo");
-  //   return this.httpClient.post<any>(this.servidor,params);
-  // }
-  // enviaConvocados(lista,idreunion){
-  //   const params:FormData=new FormData();
-  //   params.append("lista",JSON.stringify(lista));
-  //   params.append("idreunion",idreunion);
-  //   params.append("consulta","recibelistaconvocados");
-  //   return this.httpClient.post<any>(this.servidor,params);
-  // }
-  // consultaConvocados(idreunion){
-  //   const params:FormData=new FormData();
-  //   params.append("idreunion",idreunion);
-  //   params.append("consulta","consultaconvocados");
-  //   return this.httpClient.post<any>(this.servidor,params);
-  // }
-  // borrarConvocado(ci,idreunion){
-  //   const params:FormData=new FormData();
-  //   params.append("ci",ci);
-  //   params.append("idreunion",idreunion);
-  //   params.append("consulta","borraconvocado");
-  //   return this.httpClient.post<any>(this.servidor,params);
-  // }
-  // envialistamarcas(listamarcas,idreunion,tiqueador,nrotiq){
-  //   const params:FormData=new FormData();
-  //   params.append("lista",JSON.stringify(listamarcas));
-  //   params.append("idreunion",idreunion);
-  //   params.append("tiqueador",tiqueador);
-  //   params.append("nrotiq",nrotiq);
-  //   params.append("consulta","recibelistamarcas");
-  //   return this.httpClient.post<any>(this.servidor,params);
-  // }
+  
   borrarReunion(idreunion){
     console.log("enviará para borrar reunion: ",idreunion);
     const params:FormData=new FormData();
@@ -139,7 +100,7 @@ export class ConsultasService {
     params.append("consulta","obtienedatosreunion");
     return this.httpClient.post<any>(this.servidor,params);
   }
-  actualizaDatosReunion(formu,fechax,horax,idreunion){
+  actualizaDatosReunion(formu,fechax,horax,idreunion,files){
     const params:FormData=new FormData();
     params.append("nombre",formu.value.nombre);
     params.append("lugar",formu.value.lugar);
@@ -153,7 +114,15 @@ export class ConsultasService {
     params.append("estado",formu.value.estado);
     params.append("idreunion",idreunion);
     params.append("consulta","actualizadatosreunion");
-
+    if(files.length>0){
+      params.append('bandera','si');
+      files.forEach((file) => {
+        params.append('files[]', file.rawFile, file.name);
+      });
+    }
+    else{
+      params.append("bandera",'no');
+    }
     return this.httpClient.post<any>(this.servidor,params);
   }
   obtieneDatosEvento(idevento){
@@ -211,6 +180,11 @@ export class ConsultasService {
     params.append("comentario",comentario);
     params.append("idconvocado",idconvocado);
     params.append("consulta","actualizacomentario");
+    return this.httpClient.post<any>(this.servidor,params);
+  }
+  reunioneshoy(){
+    const params:FormData=new FormData();
+    params.append("consulta","reunioneshoy");
     return this.httpClient.post<any>(this.servidor,params);
   }
 }

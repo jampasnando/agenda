@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'ingreso', loadChildren: './ingreso/ingreso.module#IngresoPageModule' },
   { path: 'admin', loadChildren: './home/admin/admin.module#AdminPageModule' },
   { path: 'nuevousr', loadChildren: './home/nuevousr/nuevousr.module#NuevousrPageModule' },
+  { path: 'hoy', loadChildren: './hoy/hoy.module#HoyPageModule' },
   // { path: 'modalevento', loadChildren: './home/modalevento/modalevento.module#ModaleventoPageModule' },
   // { path: 'modal', loadChildren: './unevento/modal/modal.module#ModalPageModule' },
 ];

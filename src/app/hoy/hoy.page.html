@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>hoy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let unareunion of hoy">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">{{unareunion.horainicio}}</ion-col>
+          <ion-col size="10">
+            <span class="nombre">{{unareunion.nombre}}</span><br>
+            <span class="obs">{{unareunion.observaciones}}</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>
