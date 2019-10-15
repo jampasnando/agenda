@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-title>Detalle</ion-title>
+    <div class="cerrar" (click)="cerrar()">
+      <ion-icon name="close"></ion-icon>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="fechahora"><ion-icon name="calendar" class="fechahora"></ion-icon>{{reunion.fecha}}&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="alarm" class="fechahora"></ion-icon>{{reunion.horainicio}}</div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>Reunión: </div>
+        <div>{{reunion.nombre}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>Evento:</div>
+        <div>{{reunion.nombreevento}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>Asistentes:</div>
+        <div>{{reunion.asistentes}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>Observaciones:</div>
+        <div>{{reunion.observaciones}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>Adjuntos:</div>
+        <div *ngFor="let unadj of adjuntos" class="adjuntos">{{unadj}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

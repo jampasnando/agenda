@@ -1,8 +1,14 @@
 ion-content{
-    --background:khaki;
+    --background:lightyellow;
 }
 ion-toolbar{
     --background:khaki;
+}
+ion-item{
+    --background:lightyellow;
+}
+ion-list{
+    background:lightyellow;
 }
 // ion-grid{
 //     background: khaki;
@@ -27,4 +33,7 @@ ion-col:last-child{
 }
 ion-col:first-child{
     color: lightseagreen;
+}
+.tam{
+    font-size: 2.5em;
 }

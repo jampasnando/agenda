@@ -1,13 +1,15 @@
 <ion-header>
   <ion-toolbar mode="ios" class="toolbar">
-    <ion-buttons *ngIf="elrol=='administrador'">
-      <ion-button (click)="abreAdmin()" slot="start">
+    <ion-buttons  slot="start">
+        <ion-back-button></ion-back-button>
+      <ion-button (click)="abreAdmin()" *ngIf="elrol=='administrador'">
         <ion-icon name="menu"></ion-icon>
       </ion-button>
+      
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button routerLink="/">
-        <ion-icon slot="end" name="log-out"></ion-icon>
+      <ion-button routerLink="/hoy">
+        <ion-icon  name="home"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>

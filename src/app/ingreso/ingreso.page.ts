@@ -31,7 +31,7 @@ export class IngresoPage implements OnInit {
         GLOBAL.usuarionombre=dato[0].nombre;
         GLOBAL.usuariorol=dato[0].rol;
         console.log("global: ",GLOBAL);
-        this.router.navigateByUrl("/home");
+        this.router.navigateByUrl("/hoy");
       }
     });
 

@@ -65,7 +65,12 @@ export class ConsultasService {
     params.append("consulta","consultaunareunion");
     return this.httpClient.post<any>(this.servidor,params);
   }
-  
+  consultaUnaReunion2(idreunion){
+    const params:FormData=new FormData();
+    params.append("idreunion",idreunion);
+    params.append("consulta","consultaunareunion2");
+    return this.httpClient.post<any>(this.servidor,params);
+  }
   borrarReunion(idreunion){
     console.log("enviará para borrar reunion: ",idreunion);
     const params:FormData=new FormData();
@@ -182,9 +187,27 @@ export class ConsultasService {
     params.append("consulta","actualizacomentario");
     return this.httpClient.post<any>(this.servidor,params);
   }
-  reunioneshoy(){
+  reunioneshoy(fecha){
     const params:FormData=new FormData();
+    params.append("fecha",fecha);
     params.append("consulta","reunioneshoy");
+    return this.httpClient.post<any>(this.servidor,params);
+  }
+  consultahoy(){
+    const params:FormData=new FormData();
+    params.append("consulta","consultahoy");
+    return this.httpClient.post<any>(this.servidor,params);
+  }
+  fechaatras(fecha){
+    const params:FormData=new FormData();
+    params.append("fecha",fecha);
+    params.append("consulta","fechaatras");
+    return this.httpClient.post<any>(this.servidor,params);
+  }
+  fechaadelante(fecha){
+    const params:FormData=new FormData();
+    params.append("fecha",fecha);
+    params.append("consulta","fechaadelante");
     return this.httpClient.post<any>(this.servidor,params);
   }
 }

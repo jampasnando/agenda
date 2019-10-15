@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { HoyPage } from './hoy.page';
 import { HttpClientModule } from '@angular/common/http';
 import { ConsultasService } from '../service/consultas.service';
+import { DetalleReunionPage } from '../detalle-reunion/detalle-reunion.page';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HoyPage],
-  providers:[ConsultasService]
+  declarations: [HoyPage,DetalleReunionPage],
+  providers:[ConsultasService,DetalleReunionPage],
+  entryComponents:[DetalleReunionPage]
 })
 export class HoyPageModule {}

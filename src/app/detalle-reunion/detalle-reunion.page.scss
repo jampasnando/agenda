@@ -1,0 +1,43 @@
+ion-toolbar{
+    --background:khaki;
+}
+ion-item,ion-content{
+    --background:lightyellow;
+    
+}
+ion-list{
+    background: lightseagreen;
+}
+ion-col div:first-child{
+    // font-weight: bold;
+    font-size: 0.9em;
+    color:DARKSLATEGRAY ;
+}
+ion-col div:nth-child(2){
+    font-size: 0.8em;
+    color: LIGHTSLATEGRAY;
+    margin-left: 0.4em;
+}
+ion-row{
+    border-bottom: 1px solid lightgray;
+}
+.adjuntos{
+    font-size: 0.8em;
+    color: LIGHTSLATEGRAY;
+    margin-left: 0.4em;
+}
+.cerrar{
+    position: absolute;
+    right: 0.1em;
+    background: black;
+    top: 0.1em;
+    color: white;
+    border-radius: 50% 50%;
+    line-height: 0.8em;
+    font-size: 1.5em;
+}
+.fechahora{
+    color: lightseagreen;
+    text-align: center;
+    margin-top: 0.3em;
+}
