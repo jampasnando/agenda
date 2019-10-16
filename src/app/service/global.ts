@@ -5,7 +5,7 @@ export const GLOBAL = {
     // urlserver:'http://wscontrolrrhh.cochabamba.bo/consultas.php',
     // urlcsv:'http://wscontrolrrhh.cochabamba.bo/',
     // urlfunc:'http://appgamc.cochabamba.bo/transparencia/servicio/busqueda_empleados.php',
-
+    urldocs:'http://192.168.220.220/agenda/docs/',
     urlserver:'http://192.168.220.220/agenda/consultas.php',
     urlcsv:'http://wscontrolrrhh.cochabamba.bo/',
     // urlfunc:'http://appgamc.cochabamba.bo/transparencia/servicio/busqueda_empleados.php',

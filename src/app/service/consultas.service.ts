@@ -147,13 +147,6 @@ export class ConsultasService {
     return this.httpClient.post<any>(this.servidor,params);
   }
   
-  // obtieneFuncionarios(){
-  //   const params:FormData=new FormData();
-  //   params.append("tipo","N");
-  //   params.append("dato",'');
-  //   params.append("consulta","obtienefuncionarios");
-  //   return this.httpClient.post<any>(this.urlfunc,params);
-  // }
   consultaCredenciales(password){
     const params:FormData=new FormData();
     params.append("pass",password);
@@ -208,6 +201,11 @@ export class ConsultasService {
     const params:FormData=new FormData();
     params.append("fecha",fecha);
     params.append("consulta","fechaadelante");
+    return this.httpClient.post<any>(this.servidor,params);
+  }
+  consultamesactual(){
+    const params:FormData=new FormData();
+    params.append("consulta","consultamesactual");
     return this.httpClient.post<any>(this.servidor,params);
   }
 }

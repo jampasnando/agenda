@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsultasService } from '../service/consultas.service';
 import { ModalController, NavParams } from '@ionic/angular';
+import { GLOBAL } from '../service/global';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-detalle-reunion',
@@ -11,7 +13,8 @@ export class DetalleReunionPage implements OnInit {
   idreunion:string;
   reunion:any;
   adjuntos:string;
-  constructor(private consultas:ConsultasService,  private navParams:NavParams,private modalCtrl:ModalController) { }
+  urldocs=GLOBAL.urldocs;
+  constructor(private consultas:ConsultasService,  private navParams:NavParams,private modalCtrl:ModalController,private iab: InAppBrowser) { }
 
   ngOnInit() {
     this.idreunion=this.navParams.get("idreunion");
@@ -23,5 +26,10 @@ export class DetalleReunionPage implements OnInit {
   }
   cerrar(){
     this.modalCtrl.dismiss();
+  }
+  abredocu(url){
+    console.log("abrira: ",url);
+    const abre=this.urldocs.concat(url);
+    this.iab.create(abre,'_system',{location:'no'});
   }
 }

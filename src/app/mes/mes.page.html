@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>mes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-row class="titulos">
+    <ion-col>DOM</ion-col><ion-col>LUN</ion-col><ion-col>MAR</ion-col><ion-col>MIE</ion-col><ion-col>JUE</ion-col><ion-col>VIE</ion-col><ion-col>SAB</ion-col>
+  </ion-row>
+  <ion-row *ngFor="let unafila of matriz;let i=index" class="calendario">
+    <ion-col *ngFor="let undato of unafila;let j=index">
+      <div class="dia">{{undato}}</div>
+      <div *ngIf="matrizx[i][j]!=''" class="cantidad"><span>{{matrizx[i][j]}}</span></div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

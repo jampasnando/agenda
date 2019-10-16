@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'admin', loadChildren: './home/admin/admin.module#AdminPageModule' },
   { path: 'nuevousr', loadChildren: './home/nuevousr/nuevousr.module#NuevousrPageModule' },
   { path: 'hoy', loadChildren: './hoy/hoy.module#HoyPageModule' },
+  { path: 'mes', loadChildren: './mes/mes.module#MesPageModule' },
   // { path: 'detalle-reunion', loadChildren: './detalle-reunion/detalle-reunion.module#DetalleReunionPageModule' },
   // { path: 'modalevento', loadChildren: './home/modalevento/modalevento.module#ModaleventoPageModule' },
   // { path: 'modal', loadChildren: './unevento/modal/modal.module#ModalPageModule' },

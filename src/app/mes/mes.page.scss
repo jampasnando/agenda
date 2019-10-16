@@ -1,0 +1,24 @@
+.calendario ion-col{
+    background: lightyellow;
+    border: 1px solid lightgray;
+    height: 3em;
+}
+.titulos ion-col{
+    // height:1em;
+    font-size: 0.6em;
+    text-align: center;
+}
+.dia{
+    font-size: 0.5em;
+}
+.cantidad{
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+}
+.cantidad span{
+    background: lightseagreen;
+    border-radius: 50% 50%;
+    padding: 0.3em 0.5em;
+}
