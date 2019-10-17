@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConsultasService } from '../service/consultas.service';
 import { ModalController } from '@ionic/angular';
 import { DetalleReunionPage } from '../detalle-reunion/detalle-reunion.page';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hoy',
@@ -13,11 +14,16 @@ export class HoyPage implements OnInit {
   fechax:string;
   fechaz:string;
   dias:any=["DOM","LUN","MAR","MIE","JUE","VIE","SAB"];
-  constructor(private consultas:ConsultasService,private modalCtrl:ModalController) { }
+  fecharecibida:string="";
+  constructor(private consultas:ConsultasService,private modalCtrl:ModalController,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
-    
-    
+    this.fecharecibida=this.activatedRoute.snapshot.paramMap.get("fecha");
+    if(this.fecharecibida!=null){
+
+      console.log("fecharecibida: ",this.fecharecibida);
+    } 
+    else console.log("nohayfecharecibida");
   }
   ionViewWillEnter(){
     this.consultas.consultahoy().subscribe((fecha:any)=>{
@@ -26,10 +32,19 @@ export class HoyPage implements OnInit {
       console.log("current_date",fecha.current_date);
       this.fechaz=fecha.fechanormal;
       this.fechax=this.dias[fecha.dia].concat(", ").concat(fecha.fechanormal);
-      this.consultas.reunioneshoy(fecha.current_date).subscribe((datos:any)=>{
-        console.log("hoys: ",datos);
-        this.hoy=datos;
-      });
+      if(this.fecharecibida==""){
+        this.consultas.reunioneshoy(fecha.current_date).subscribe((datos:any)=>{
+          console.log("hoys: ",datos);
+          this.hoy=datos;
+        });
+      }
+      else{
+        this.consultas.reunioneshoy(this.fecharecibida).subscribe((datos:any)=>{
+          console.log("hoys: ",datos);
+          this.fechax=this.fecharecibida.split("-").reverse().join("-");
+          this.hoy=datos;
+        });
+      }
     });
   }
   atras(fechay){

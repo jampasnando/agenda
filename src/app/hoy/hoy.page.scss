@@ -28,7 +28,7 @@ ion-list{
     color: #c1c1c1;
     font-size: 0.8em;
 }
-ion-col:last-child{
+.descrip{
     background:lightyellow;
 }
 ion-col:first-child{
@@ -36,4 +36,11 @@ ion-col:first-child{
 }
 .tam{
     font-size: 2.5em;
+}
+.irmes{
+    display: flex;
+    align-content: space-between;
+}
+.fecha{
+    text-align: center;
 }

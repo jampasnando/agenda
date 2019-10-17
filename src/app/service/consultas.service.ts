@@ -203,9 +203,11 @@ export class ConsultasService {
     params.append("consulta","fechaadelante");
     return this.httpClient.post<any>(this.servidor,params);
   }
-  consultamesactual(){
+  consultamesactual(mes,ano){
     const params:FormData=new FormData();
     params.append("consulta","consultamesactual");
+    params.append("mes",mes);
+    params.append("ano",ano);
     return this.httpClient.post<any>(this.servidor,params);
   }
 }
