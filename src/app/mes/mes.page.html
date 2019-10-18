@@ -1,39 +1,56 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons  slot="start">
-            <ion-back-button></ion-back-button>
-        </ion-buttons>
-        
-      <ion-buttons  slot="end">
-            <ion-button routerLink="/ingreso" ><ion-icon name="log-out" ></ion-icon></ion-button>
-        </ion-buttons>
-    </ion-toolbar>
-    <div class="irmes">
-    <ion-buttons  slot="start">
-       <ion-button (click)="atras()">
-          <ion-icon name="md-arrow-dropleft-circle" class="tam"></ion-icon>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agenda</ion-title>
+    <ion-buttons slot="end">
+        <ion-button routerLink="../home" *ngIf="elrol=='administrador'">
+          <ion-icon name="list-box"></ion-icon>
         </ion-button>
-      </ion-buttons>
-  <ion-title class="fecha" class="titulo">{{meses[mes]}}/{{ano}}</ion-title>
-  <ion-buttons  slot="end">
+      <ion-button routerLink="/ingreso">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="irmes">
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()">
+        <ion-icon name="md-arrow-dropleft-circle" class="tam"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="fecha" class="titulo">{{meses[mes]}}/{{ano}}</ion-title>
+    <ion-buttons slot="end">
       <ion-button (click)="adelante()">
-          <ion-icon name="md-arrow-dropright-circle" class="tam"></ion-icon>
-        </ion-button>
-       
+        <ion-icon name="md-arrow-dropright-circle" class="tam"></ion-icon>
+      </ion-button>
+
     </ion-buttons>
   </div>
-  </ion-header>
+</ion-header>
 
 <ion-content>
-<ion-grid>
-  <ion-row class="titulos">
-    <ion-col>DOM</ion-col><ion-col>LUN</ion-col><ion-col>MAR</ion-col><ion-col>MIE</ion-col><ion-col>JUE</ion-col><ion-col>VIE</ion-col><ion-col>SAB</ion-col>
-  </ion-row>
-  <ion-row *ngFor="let unafila of matriz;let i=index" class="calendario">
-    <ion-col *ngFor="let undato of unafila;let j=index" (click)="detallemes(undato)">
-      <div class="dia">{{undato}}</div>
-      <div *ngIf="matrizx[i][j]!=''" class="cantidad"><span>{{matrizx[i][j]}}</span></div>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+  <ion-grid>
+    <ion-row class="titulos">
+      <ion-col>DOM</ion-col>
+      <ion-col>LUN</ion-col>
+      <ion-col>MAR</ion-col>
+      <ion-col>MIE</ion-col>
+      <ion-col>JUE</ion-col>
+      <ion-col>VIE</ion-col>
+      <ion-col>SAB</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let unafila of matriz;let i=index" class="calendario">
+      <ion-col *ngFor="let undato of unafila;let j=index" (click)="detallemes(undato)">
+        <div *ngIf="this.pintar==undato" class="pintar">
+          <div class="dia">{{undato}} Hoy</div>
+          <div *ngIf="matrizx[i][j]!=''" class="cantidad"><span>{{matrizx[i][j]}}</span></div>
+        </div>
+        <div *ngIf="this.pintar!=undato">
+          <div class="dia">{{undato}}</div>
+          <div *ngIf="matrizx[i][j]!=''" class="cantidad"><span>{{matrizx[i][j]}}</span></div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

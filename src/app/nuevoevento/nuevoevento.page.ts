@@ -16,7 +16,7 @@ export class NuevoeventoPage implements OnInit {
       nombre:new FormControl(null,Validators.compose([
         Validators.required
       ])),
-      descripcion:new FormControl(null,Validators.compose([
+      descripcion:new FormControl('',Validators.compose([
         Validators.maxLength(2000)
       ]))
       // estado:new FormControl('abierto',Validators.compose([

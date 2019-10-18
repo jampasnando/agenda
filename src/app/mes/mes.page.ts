@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsultasService } from '../service/consultas.service';
 import { Router } from '@angular/router';
-
+import { GLOBAL } from '../service/global';
 @Component({
   selector: 'app-mes',
   templateUrl: './mes.page.html',
@@ -19,6 +19,8 @@ export class MesPage implements OnInit {
   vectorx=[];
   ano=0;
   mes=0;
+  pintar="";
+  elrol=GLOBAL.usuariorol;
   meses=["","ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"]
   constructor(private consultas:ConsultasService,private router:Router) { }
 
@@ -47,7 +49,8 @@ export class MesPage implements OnInit {
       this.fechaultdia=resp.aux.fechaultdia;
       this.ano=resp.ano;
       this.mes=resp.mes;
-      
+      this.pintar=resp.pintar;
+      console.log("resp: ",resp);
       for(let k=0;k<this.nroprimerdia;k++){
         this.vector.push("");
       }

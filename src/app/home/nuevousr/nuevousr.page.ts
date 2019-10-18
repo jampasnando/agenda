@@ -17,7 +17,7 @@ export class NuevousrPage implements OnInit {
       nombre:new FormControl(null,Validators.compose([
         Validators.required
       ])),
-      rol:new FormControl("tiqueador",Validators.compose([
+      rol:new FormControl("lector",Validators.compose([
         Validators.required
       ])),
       ci:new FormControl(null,Validators.compose([

@@ -3,7 +3,7 @@ import { ConsultasService } from '../service/consultas.service';
 import { ModalController } from '@ionic/angular';
 import { DetalleReunionPage } from '../detalle-reunion/detalle-reunion.page';
 import { ActivatedRoute } from '@angular/router';
-
+import { GLOBAL } from '../service/global';
 @Component({
   selector: 'app-hoy',
   templateUrl: './hoy.page.html',
@@ -15,6 +15,7 @@ export class HoyPage implements OnInit {
   fechaz:string;
   dias:any=["DOM","LUN","MAR","MIE","JUE","VIE","SAB"];
   fecharecibida:string="";
+  elrol=GLOBAL.usuariorol;
   constructor(private consultas:ConsultasService,private modalCtrl:ModalController,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
@@ -33,6 +34,7 @@ export class HoyPage implements OnInit {
       this.fechaz=fecha.fechanormal;
       this.fechax=this.dias[fecha.dia].concat(", ").concat(fecha.fechanormal);
       if(this.fecharecibida==""){
+        this.fechaz=fecha.fechanormal;
         this.consultas.reunioneshoy(fecha.current_date).subscribe((datos:any)=>{
           console.log("hoys: ",datos);
           this.hoy=datos;
@@ -42,6 +44,7 @@ export class HoyPage implements OnInit {
         this.consultas.reunioneshoy(this.fecharecibida).subscribe((datos:any)=>{
           console.log("hoys: ",datos);
           this.fechax=this.fecharecibida.split("-").reverse().join("-");
+          this.fechaz=this.fechax;
           this.hoy=datos;
         });
       }

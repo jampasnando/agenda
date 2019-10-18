@@ -11,7 +11,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 })
 export class DetalleReunionPage implements OnInit {
   idreunion:string;
-  reunion:any;
+  reunion:any=[{fecha:''}];
   adjuntos:string;
   urldocs=GLOBAL.urldocs;
   constructor(private consultas:ConsultasService,  private navParams:NavParams,private modalCtrl:ModalController,private iab: InAppBrowser) { }
@@ -19,9 +19,9 @@ export class DetalleReunionPage implements OnInit {
   ngOnInit() {
     this.idreunion=this.navParams.get("idreunion");
     this.consultas.consultaUnaReunion2(this.idreunion).subscribe((datos:any)=>{
+      this.reunion=datos;
       console.log("lareunion: ",datos);
       this.adjuntos=datos.docs.split(":");
-      this.reunion=datos;
     });
   }
   cerrar(){

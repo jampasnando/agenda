@@ -6,6 +6,9 @@ ion-toolbar{
     border: 1px solid lightgray;
     height: 3em;
 }
+ion-row ion-col:first-child{
+    background:lightsalmon;
+}
 .titulos ion-col{
     // height:1em;
     font-size: 0.6em;
@@ -31,7 +34,18 @@ ion-toolbar{
 }
 .tam{
     font-size: 2.5em;
+    // color: gray;
 }
 .titulo{
     text-align: center;
+}
+.pintar .dia{
+    background: gray;
+    color: white;
+    font-weight: bold;
+    border: 1px dotted gray;
+    border-radius: 5px;
+}
+.pintar .cantidad{
+    margin-top: 0.2em;
 }

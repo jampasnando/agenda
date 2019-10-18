@@ -32,7 +32,7 @@ export class HomePage {
     const alerta= await this.alertCtrl.create({
       header:"Está seguro de Borrar",
       subHeader:"El evento ".concat(uno.nombre).concat("???"),
-      message:"Se borrarán TODAS LAS REUNIONES Y ASISTENTES QUE PERTENECEN A ESTE EVENTO. <br> Si no está seguro aprete Cancelar",
+      message:"Se borrarán TODAS LAS REUNIONES Y DATOS QUE PERTENECEN A ESTE EVENTO. <br> Si no está seguro aprete Cancelar",
       buttons:[
         {
           text:"Cancelar",
