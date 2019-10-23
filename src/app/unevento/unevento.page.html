@@ -19,9 +19,9 @@
     <ion-list-header>Reuniones:</ion-list-header>
     <ion-item-sliding *ngFor="let unareunion of reuniones,let i=index">
       <ion-item-options side="start" *ngIf="elrol=='administrador'">
-          <ion-item-option color="primary" (click)="reportecsv(unareunion.id)">
+          <!-- <ion-item-option color="primary" (click)="reportecsv(unareunion.id)">
               Reporte<br>CSV
-            </ion-item-option>
+            </ion-item-option> -->
         <ion-item-option color="danger" (click)="borraunareunion(unareunion)">
           Borrar
         </ion-item-option>

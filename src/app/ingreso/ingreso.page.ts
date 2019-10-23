@@ -9,7 +9,8 @@ import { IonInput } from '@ionic/angular';
   styleUrls: ['./ingreso.page.scss'],
 })
 export class IngresoPage implements OnInit {
-@ViewChild("login",{static:true}) private login:IonInput
+@ViewChild("login",{static:true}) private login:IonInput;
+
   password:string;
   constructor(private router:Router,private consultas:ConsultasService) { }
 

@@ -92,31 +92,31 @@ export class UneventoPage implements OnInit {
 
   }
   reportecsv(idreunion){
-    let hoy=new Date();
-    let ano=hoy.getFullYear().toString();
-    let mes=(1+hoy.getMonth()).toString();
-    let dia=hoy.getDate().toString();
-    let hora=hoy.getHours().toString();
-    let min=hoy.getMinutes().toString();
-    if(mes.length==1){mes="0"+mes};
-    if(dia.length==1){dia="0"+dia};
-    if(hora.length==1){hora="0"+hora};
-    if(min.length==1){min="0"+min};
-    let marca=dia + "_" +mes + "_" +ano + "_" +hora + "_" +min;
-    // this.diagnostic.requestExternalStorageAuthorization().then(()=>{
-        const fileTransfer: FileTransferObject = this.transfer.create();
-        const url = GLOBAL.urlcsv.concat("exportasistencias.php?idreunion=").concat(idreunion).concat("&").concat(hoy.getTime().toString());
-        console.log("direccion: ",url);
-        fileTransfer.download(url, this.file.externalDataDirectory + 'asistencias_'+marca+'.csv').then((entry) => {
-          alert("Descargado a tu carpeta Android/data/com.gamc.rrhh/files");
-        }, (error) => {
-          alert("Error al descargar archivo");
-        });
-    // })
-    // .catch((error)=>{
-    //   alert("no tiene permiso de acceder memoria externa");
-    // });
+  //   let hoy=new Date();
+  //   let ano=hoy.getFullYear().toString();
+  //   let mes=(1+hoy.getMonth()).toString();
+  //   let dia=hoy.getDate().toString();
+  //   let hora=hoy.getHours().toString();
+  //   let min=hoy.getMinutes().toString();
+  //   if(mes.length==1){mes="0"+mes};
+  //   if(dia.length==1){dia="0"+dia};
+  //   if(hora.length==1){hora="0"+hora};
+  //   if(min.length==1){min="0"+min};
+  //   let marca=dia + "_" +mes + "_" +ano + "_" +hora + "_" +min;
+  //   // this.diagnostic.requestExternalStorageAuthorization().then(()=>{
+  //       const fileTransfer: FileTransferObject = this.transfer.create();
+  //       const url = GLOBAL.urlcsv.concat("exportasistencias.php?idreunion=").concat(idreunion).concat("&").concat(hoy.getTime().toString());
+  //       console.log("direccion: ",url);
+  //       fileTransfer.download(url, this.file.externalDataDirectory + 'asistencias_'+marca+'.csv').then((entry) => {
+  //         alert("Descargado a tu carpeta Android/data/com.gamc.rrhh/files");
+  //       }, (error) => {
+  //         alert("Error al descargar archivo");
+  //       });
+  //   // })
+  //   // .catch((error)=>{
+  //   //   alert("no tiene permiso de acceder memoria externa");
+  //   // });
     
-    this.mislide.closeSlidingItems();
+  //   this.mislide.closeSlidingItems();
   }
 }
