@@ -21,7 +21,7 @@ export class MesPage implements OnInit {
   mes=0;
   pintar="";
   elrol=GLOBAL.usuariorol;
-  meses=["","ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"]
+  meses=["","ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"];
   constructor(private consultas:ConsultasService,private router:Router) { }
 
   ngOnInit() {
@@ -42,7 +42,6 @@ export class MesPage implements OnInit {
     this.fechaultdia=0;
     this.fila=1;
     this.consultas.consultamesactual(mes,ano).subscribe((resp:any)=>{
-      console.log("datos de:",mes,"/",ano,": ",resp);
       this.nroprimerdia=resp.aux.nroprimerdia;
       this.indicedia=this.nroprimerdia;
       this.nroultdia=resp.aux.nroultdia;
@@ -50,7 +49,6 @@ export class MesPage implements OnInit {
       this.ano=resp.ano;
       this.mes=resp.mes;
       this.pintar=resp.pintar;
-      console.log("resp: ",resp);
       for(let k=0;k<this.nroprimerdia;k++){
         this.vector.push("");
       }
@@ -65,7 +63,6 @@ export class MesPage implements OnInit {
           this.vector=[];
         }
       }
-      console.log("INDICEDIA: ",this.indicedia);
       if(this.indicedia<7 && this.indicedia>0){
         for(let p=(this.indicedia);p<=6;p++)  {
           this.vector.push("");
@@ -75,27 +72,25 @@ export class MesPage implements OnInit {
       }
       for(let j=0;j<(this.fila-1);j++){
         for(let m=0;m<=6;m++){
-          console.log(j,":",m," ->",this.matriz[j][m]);
           this.vectorx.push("");
         }
         this.matrizx.push(this.vectorx);
         this.vectorx=[];
       }
       
-      console.log("matrizx: ",this.matrizx);
 
       for(let reunionesundia of resp.nroreuniones){
-        console.log("reunionesundia: ",reunionesundia);
         this.matrizx[reunionesundia.semana-1].splice(reunionesundia.nrodia,1,reunionesundia.cantidad);
       }
     });
   }
   detallemes(dia){
-    const fechaaux=this.ano.toString().concat("-").concat(this.mes.toString()).concat("-").concat(dia);
-    console.log("fechaparadetalle: ",fechaaux);
-    let url="/hoy/".concat(fechaaux);
-    this.router.urlUpdateStrategy="eager";
-    this.router.navigateByUrl(url);
+    if(dia>0){
+      const fechaaux=this.ano.toString().concat("-").concat(this.mes.toString()).concat("-").concat(dia);
+      let url="/hoy/".concat(fechaaux);
+      this.router.urlUpdateStrategy="eager";
+      this.router.navigateByUrl(url);
+    }
   }
   atras(){
     this.mes--;

@@ -47,7 +47,7 @@
       <ion-item  class="items" *ngIf="unareunion.diferencia>0" color="light">
         <ion-label>
           <h2>{{unareunion.nombre}}</h2>
-          <p>{{unareunion.fecha.split("-").reverse().join("-")}} - {{unareunion.horainicio}} - duración: {{unareunion.duracion}}</p>
+          <p>{{unareunion.fecha.split("-").reverse().join("-")}} , Hrs: {{unareunion.horainicio}} </p>
         </ion-label>
         <ion-badge *ngIf="unareunion.estado=='Pendiente'" color="primary">{{unareunion.estado}}</ion-badge>
         <ion-badge *ngIf="unareunion.estado=='Realizada'"  color="success">{{unareunion.estado}}</ion-badge>

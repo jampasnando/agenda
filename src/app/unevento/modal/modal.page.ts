@@ -23,7 +23,6 @@ export class ModalPage implements OnInit {
       case ('Realizada'):
           this.Realizada="true";
         break;
-        break;
       case ('Cancelada'):
           this.Cancelada="true";
         break;
@@ -35,7 +34,7 @@ export class ModalPage implements OnInit {
     this.nuevoestado=event.detail.value;
   }
   cancelaModal(){
-    this.modalController.dismiss("Cancelada");
+    this.modalController.dismiss("noelegionada");
 
   }
   guardaCambios(){

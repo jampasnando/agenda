@@ -32,6 +32,7 @@ export class ConsultasService {
     params.append("estado",formu.value.estado);
     params.append("id",id);
     params.append("consulta","recibeformnuevareunion");
+    // console.log("archs: ",files);
     if(files.length>0){
       files.forEach((file) => {
         params.append('bandera','si');

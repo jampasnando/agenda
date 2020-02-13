@@ -8,11 +8,11 @@ export const GLOBAL = {
    
    
 
-    // urldocs:'http://192.168.220.220/agenda/docs/',
-    // urlserver:'http://192.168.220.220/agenda/consultas.php',
+    //urldocs:'http://localhost:8888/agenda/docs/',
+    //urlserver:'http://localhost:8888/agenda/consultas.php',
 
-    urldocs:'http://wscontrolrrhh.cochabamba.bo/agenda/docs/',
-    urlserver:'http://wscontrolrrhh.cochabamba.bo/agenda/consultas.php',   
+    urldocs:'http://appagenda.cochabamba.bo/agenda/docs/',
+    urlserver:'http://appagenda.cochabamba.bo/consultas.php',   
 
     usuarioci:'',
     usuarionombre:'',
